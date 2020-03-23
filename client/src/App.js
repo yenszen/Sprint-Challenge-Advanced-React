@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import axios from "axios";
-import PlayerCard from "./components/PlayerCard";
 import NavBar from "./components/NavBar";
 
 class App extends React.Component {
@@ -27,17 +26,19 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <nav className="nav">
-          <NavBar />
-        </nav>
-        {this.state.players.map(player => {
-          return (
-            // console.log(player),
-            <div key={player.id}>
-              <PlayerCard playerData={player} />
-            </div>
-          );
-        })}
+        <NavBar />
+        <div data-testid="player-list">
+          {this.state.players.map(player => {
+            return (
+              // console.log(player),
+              <div key={player.id}>
+                <h3>{player.name}</h3>
+                <p>Country: {player.country}</p>
+                <p>Searches: {player.searches}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
