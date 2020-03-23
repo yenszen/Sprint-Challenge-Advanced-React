@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 import PlayerCard from "./components/PlayerCard";
+import NavBar from "./components/NavBar";
 
 class App extends React.Component {
   constructor() {
@@ -25,8 +26,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Sprint Challenge</h2>
+      <div className="App">
+        <nav className="nav">
+          <NavBar />
+        </nav>
         {this.state.players.map(player => {
           return (
             // console.log(player),
